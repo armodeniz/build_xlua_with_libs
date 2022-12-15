@@ -1,43 +1,19 @@
 xLua常用库集成
 =====
 
+在上游基础上只保留了如下第三方库
+
 ## lua-protobuf
 
 https://github.com/starwing/lua-protobuf
-
-ps：如果需要用pbc的，可以修改编译参数指定改为用pbc，以window 64位为例，打开make_win64_lua53.bat，找到这行：
-
-~~~bash
-cmake -G "Visual Studio 14 2015 Win64" ..
-~~~
-
-修改为
-
-~~~bash
-cmake -DPBC=ON -G "Visual Studio 14 2015 Win64" ..
-~~~
 
 ## LuaSocket
 
 xLua默认集成库。
 
-## RapidJson
-
-json处理，特点是Rapid。
-
-## LPeg
-
-模式匹配库。
-
-## FFI for lua53
-
-基于这个项目的裁剪：https://github.com/facebookarchive/luaffifb
-
-裁剪掉函数调用部分，这部分需要用到jit，有些系统行不同（比如ios），故裁剪掉。
-
 ## 如何使用
 
-* 到[自动编译](https://github.com/chexiongsheng/build_xlua_with_libs/actions)下载你希望使用的版本（lua53,lua54, luajit），解压覆盖Unity工程Assets下Plugins目录，注意是覆盖，别删除后拷
+* 到自动编译(Actions)下载你希望使用的版本（lua53,lua54, luajit），解压覆盖Unity工程Assets下Plugins目录，注意是覆盖，别删除后拷
 * 把LibsTestProj/Assets下的BuildInInit.cs和Resources目录放到Unity工程Assets下
 * 库的初始化看实例：LibsTestProj/Assets/Helloworld/Helloworld.cs
 
