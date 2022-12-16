@@ -41,6 +41,18 @@ endif()
 set(LUA_SRC_PATH lua-${LUA_VERSION}/src)
 set(LUAJIT_SRC_PATH luajit-2.1.0b3/src)
 
+#begin luafilesystem
+set (LFS_SRC luafilesystem/src/lfs.c)
+set_property(
+    SOURCE ${LFS_SRC}
+    APPEND
+    PROPERTY COMPILE_DEFINITIONS
+    LUA_LIB
+)
+list(APPEND THIRDPART_INC  luafilesystem/src)
+set (THIRDPART_SRC ${THIRDPART_SRC} ${LFS_SRC})
+#end luafilesystem
+
 if (NOT PBC)
 	#begin lua-protobuf
 	set (LPB_SRC 
