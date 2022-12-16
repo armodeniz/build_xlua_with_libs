@@ -122,12 +122,14 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
-      - name: Insatll MSVC
+      - run: choco install visualstudio2017community
+
+      - name: Find MSVC
         uses: microsoft/setup-msbuild@v1.1
         with:
-          vs-version: '[15,16)'
+          vs-version: '[14,16)'
       
       - name: Build
         run: |
